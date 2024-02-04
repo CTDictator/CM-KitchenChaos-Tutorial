@@ -1,9 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerAnimator : MonoBehaviour
+public class PlayerAnimator : NetworkBehaviour
 {
     private Animator _animator;
     private static readonly int IsWalking = Animator.StringToHash("IsWalking");
@@ -15,6 +16,7 @@ public class PlayerAnimator : MonoBehaviour
 
     private void Update()
     {
+        if (!IsOwner) return;
         _animator.SetBool(IsWalking, player.IsWalking());
     }
 }
