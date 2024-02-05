@@ -162,7 +162,7 @@ public class Player : NetworkBehaviour, IKitchenObjectParent
         Vector3 moveDirection = new(inputVector.x, 0, inputVector.y);
         
         float playerRadius = 0.7f;
-        float playerHeight = 2.0f;
+        //float playerHeight = 2.0f;
         float moveDistance = moveSpeed * Time.deltaTime;
         bool canMove = !Physics.BoxCast(
             transform.position, Vector3.one * playerRadius, moveDirection, Quaternion.identity, moveDistance,collisionsLayerMask);
